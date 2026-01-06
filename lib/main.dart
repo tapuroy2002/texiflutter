@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: CurrentFare()
+      home: CurrentFare(currentFareAmount: '200')
     );
   }
 }
