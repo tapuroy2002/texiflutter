@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxiflutter/components/overlays/add_Number.dart';
+import 'package:taxiflutter/components/overlays/current_trip.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
 import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AddNumber(controller: TextEditingController())
+      home: CurrentTrip(title: 'current trip', startedTitle: 'started', currentFareTitle: 'current frea', currentAmount: '\$200', buttonText: 'Other Payments',  controller: TextEditingController(), startedAmount: '18.21', informationText: 'informationtext',)
     );
   }
 }
