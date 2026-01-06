@@ -16,7 +16,6 @@ class BluetoothStatusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Configuration based on state
     final String title;
     final String subtitle;
     final Color statusColor;
@@ -29,23 +28,23 @@ class BluetoothStatusCard extends StatelessWidget {
         title = "Disconnected";
         subtitle = "Off";
         statusColor = Colors.grey;
-        iconBgColor = const Color(0xFFB0B8C4); // Light grey-blue
+        iconBgColor = const Color(0xFFB0B8C4);
         iconColor = const Color(0xFF334155);
         isConnecting = false;
         break;
       case BluetoothState.connectToVehicle:
         title = "Connect to vehicle";
         subtitle = "On";
-        statusColor = const Color(0xFF10B981); // Green
-        iconBgColor = const Color(0xFF0073CF); // Bright Blue
+        statusColor = const Color(0xFF10B981);
+        iconBgColor = const Color(0xFF0073CF);
         iconColor = Colors.white;
         isConnecting = false;
         break;
       case BluetoothState.connecting:
         title = "Connecting to vehicle";
         subtitle = "Connecting...";
-        statusColor = const Color(0xFF0073CF); // Blue
-        iconBgColor = const Color(0xFF0061AF); // Darker Blue
+        statusColor = const Color(0xFF0073CF);
+        iconBgColor = const Color(0xFF0061AF);
         iconColor = const Color(0xFF1E293B);
         isConnecting = true;
         break;
@@ -62,7 +61,6 @@ class BluetoothStatusCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Left: Bluetooth Icon Circle
             Container(
               width: 56,
               height: 56,
@@ -89,7 +87,6 @@ class BluetoothStatusCard extends StatelessWidget {
             ),
             const SizedBox(width: 20),
 
-            // Right: Text Information
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,

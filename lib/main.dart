@@ -6,6 +6,7 @@ import 'package:taxiflutter/components/overlays/current_trip.dart';
 import 'package:taxiflutter/components/overlays/pay_Amount.dart';
 import 'package:taxiflutter/components/overlays/scan_and_Pay.dart';
 import 'package:taxiflutter/components/selection_Buttons/bluetooth.dart';
+import 'package:taxiflutter/components/selection_Buttons/pay_Amount_Tip_comp.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
 import 'components/Payment_Components/current_Fare.dart';
 import 'components/buttons/medium_Button.dart';
@@ -17,8 +18,16 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int? _selectedTipIndex;
+
 
   // This widget is the root of your application.
   @override
@@ -28,8 +37,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BluetoothStatusCard(state: BluetoothState.disconnected)
+      home: PayAmountTipComp(options: ['5','10','15','20','Round up','No Trip'],selectedIndex: _selectedTipIndex, onSelected: (int index) {
+        // Use setState to rebuild the UI with the new selection
+        setState(() {
+          _selectedTipIndex = index;
+        });
+      },
 
-    );
+    ));
   }
 }
