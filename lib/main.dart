@@ -5,6 +5,7 @@ import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
 import 'components/feedback/total_Fare.dart';
 import 'components/labels/bt_Status.dart';
+import 'components/overlays/notice.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AddNumber(controller: TextEditingController())
+      home: Notice()
     );
   }
 }
