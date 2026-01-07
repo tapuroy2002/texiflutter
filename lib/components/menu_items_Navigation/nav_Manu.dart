@@ -3,27 +3,21 @@ import 'package:flutter/material.dart';
 class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackPressed;
-  final Color backgroundColor;
   final Color contentColor;
 
   const CustomHeaderMini({
     super.key,
     required this.title,
     this.onBackPressed,
-    this.backgroundColor = const Color(0xFF264163), // Dark blue from your image
     this.contentColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundColor,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: SizedBox(
-        height: 56.0, // Standard AppBar height
         child: Stack(
           children: [
-            // Back Button
             Align(
               alignment: Alignment.centerLeft,
               child: IconButton(
@@ -31,7 +25,6 @@ class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
                 onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
               ),
             ),
-            // Title
             Center(
               child: Text(
                 title,
@@ -47,7 +40,6 @@ class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
 }

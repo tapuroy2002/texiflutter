@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:taxiflutter/color_Theme/color_theme.dart';
+import 'package:taxiflutter/components/buttons/medium_Button.dart';
+import 'package:taxiflutter/components/menu_items_Navigation/nav_Manu.dart';
 
 class QrScanScreen extends StatefulWidget {
   const QrScanScreen({super.key});
@@ -31,6 +34,25 @@ class _QrScanScreenState extends State<QrScanScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 20),
           child: Column(
               children: [
+                CustomHeaderMini(title: 'Connect to vehicle'),
+                const SizedBox(height: 104),
+                Image.asset('assets/images/qrframe.png'),
+                const SizedBox(height: 78.88),
+                MediumButton(text: 'Scan with QR-code',
+                    textColor: Color(0XFF0E192B),
+                    color: ColorTheme.platinum,
+                    strokeColor: ColorTheme.platinum,
+                    strokeWidth:0.0,
+                  onPressed: (){},
+                ),
+                const SizedBox(height: 21),
+                MediumButton(text: 'Scan with QR-code',
+                  textColor: ColorTheme.platinum,
+                  color:Color(0XFF142541) ,
+                  strokeColor:ColorTheme.confidentReliable,
+                  strokeWidth:4,
+                  onPressed: (){},
+                ),
 
               ])),
     );

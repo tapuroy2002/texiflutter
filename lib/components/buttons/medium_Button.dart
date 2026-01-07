@@ -40,6 +40,7 @@ class MediumButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor,
+            fontFamily: 'inter',
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
