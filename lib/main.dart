@@ -9,6 +9,7 @@ import 'package:taxiflutter/components/overlays/scan_and_Pay.dart';
 import 'package:taxiflutter/components/selection_Buttons/bluetooth.dart';
 import 'package:taxiflutter/components/selection_Buttons/pay_Amount_Tip_comp.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
+import 'package:taxiflutter/screens/permission_required.dart';
 import 'components/Payment_Components/current_Fare.dart';
 import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
@@ -30,7 +31,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int? _selectedTipIndex;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,16 +38,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(
-        appBar: CustomHeader(
-          title: '2iZiitaxi',
-          menuText: 'menu',
-          onMenuTap: () {
-            print("Menu clicked!");
-          },
-        ),
-        body: Center(child: Text("Content goes here")),
-      )
+      home: PermissionRequired(),
     );
   }
 }
