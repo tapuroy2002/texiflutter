@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taxiflutter/components/Payment_Components/hire.dart';
 import 'package:taxiflutter/components/Payment_Components/payments.dart';
+import 'package:taxiflutter/components/menu_items_Navigation/action_Row.dart';
 import 'package:taxiflutter/components/overlays/add_Number.dart';
 import 'package:taxiflutter/components/overlays/current_trip.dart';
 import 'package:taxiflutter/components/overlays/pay_Amount.dart';
@@ -13,6 +14,7 @@ import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
 import 'components/feedback/total_Fare.dart';
 import 'components/labels/bt_Status.dart';
+import 'components/menu_items_Navigation/appBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +30,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int? _selectedTipIndex;
 
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -37,13 +38,16 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PayAmountTipComp(options: ['5','10','15','20','Round up','No Trip'],selectedIndex: _selectedTipIndex, onSelected: (int index) {
-        // Use setState to rebuild the UI with the new selection
-        setState(() {
-          _selectedTipIndex = index;
-        });
-      },
-
-    ));
+      home: Scaffold(
+        appBar: CustomHeader(
+          title: '2iZiitaxi',
+          menuText: 'menu',
+          onMenuTap: () {
+            print("Menu clicked!");
+          },
+        ),
+        body: Center(child: Text("Content goes here")),
+      )
+    );
   }
 }
