@@ -2,46 +2,73 @@ import 'package:flutter/material.dart';
 import 'package:taxiflutter/components/buttons/normal_Button.dart';
 
 class Notice extends StatelessWidget {
+  // Required fields
+  final String title0;
+  final String description;
+  final String buttonText1;
+
+  // Nullable/Optional fields
   final bool isNotice;
-  Notice({super.key,required this.isNotice});
+  final IconData? icon; // Changed to IconData for better flexibility
+  final String? title;
+  final String? time;
+  final String? buttonText2;
+
+  const Notice({
+    super.key,
+    required this.title0, // Required
+    required this.description, // Required
+    required this.buttonText1, // Required
+    this.isNotice = false, // Default value provided
+    this.icon, // Optional
+    this.title, // Optional
+    this.time, // Optional
+    this.buttonText2, // Optional
+  });
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor:isNotice?Color(0xFF60A5FA66).withOpacity(0.4):Color(0xFF14254166).withOpacity(0.6),
+      backgroundColor: isNotice
+          ? const Color(0xFF60A5FA).withOpacity(0.4)
+          : const Color(0x14254166).withOpacity(0.6),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: Color(0xFF79BAF4).withOpacity(0.4), width: 1),
+      ),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 64,horizontal: 23),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        padding: const EdgeInsets.symmetric(vertical: 64, horizontal: 23),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 20.06,
-                horizontal: 16.64,
+            if (icon != null)
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0x3321375A),
+                ),
+                child: Icon(icon, color: Colors.blue),
               ),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color(0x3321375A),
-              ),
-              child: Icon(Icons.check, color: Color(0XFF60A5FA)),
-            ),
             const SizedBox(height: 24),
-            Text(
-              'Take over',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w400,
-                color: Color(0XFFF5F7FA),
+
+            // Only show title if it is not null
+            if (title != null)
+              Text(
+                title!,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0XFFF5F7FA),
+                ),
               ),
-            ),
+
             const SizedBox(height: 32),
             Text(
-              'Title',
-              style: TextStyle(
+              title0,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w400,
                 color: Color(0XFFF5F7FA),
@@ -49,8 +76,9 @@ class Notice extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Description',
-              style: TextStyle(
+              description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
                 color: Color(0XFFCCD6E5),
@@ -58,33 +86,40 @@ class Notice extends StatelessWidget {
             ),
 
             const SizedBox(height: 16),
-            Text(
-              isNotice ?'Time':'',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Color(0XFFFFFFFF),
+
+            // Logic for Time display
+            if (isNotice || time != null)
+              Text(
+                isNotice ? '' : time!,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0XFFFFFFFF),
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
+
+            const SizedBox(height: 24),
             NormalButton(
-              text: 'Option',
-              textColor: Color(0XFFFFFFFF),
-              color: Color(0XFF086CBF),
-              strokeColor: Color(0XFF086CBF),
+              text: buttonText1,
+              textColor: const Color(0XFFFFFFFF),
+              color: const Color(0XFF086CBF),
+              strokeColor: const Color(0XFF086CBF),
               strokeWidth: 0.0,
-              onPressed: (){},
+              onPressed: () => Navigator.pop(context),
             ),
 
-            const SizedBox(height: 12),
-            NormalButton(
-              text: 'Option',
-              textColor: Color(0XFFFFFFFF),
-              color: Color(0xFF3C69A2),
-              strokeColor: Color(0XFF60A5FA),
-              strokeWidth: 1.01,
-              onPressed: (){},
-            ),
+            // The second button is now fully conditional
+            if (buttonText2 != null) ...[
+              const SizedBox(height: 12),
+              NormalButton(
+                text: buttonText2!,
+                textColor: const Color(0XFFFFFFFF),
+                color: const Color(0xFF3C69A2),
+                strokeColor: const Color(0XFF60A5FA),
+                strokeWidth: 1.01,
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
           ],
         ),
       ),

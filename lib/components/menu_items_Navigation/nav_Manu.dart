@@ -3,21 +3,19 @@ import 'package:flutter/material.dart';
 class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackPressed;
-  final Color backgroundColor;
   final Color contentColor;
 
   const CustomHeaderMini({
     super.key,
     required this.title,
     this.onBackPressed,
-    this.backgroundColor = const Color(0xFF264163), // Dark blue from your image
     this.contentColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundColor,
+      color: Colors.transparent,
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: SizedBox(
         height: 56.0, // Standard AppBar height
