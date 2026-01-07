@@ -8,9 +8,10 @@ import 'package:taxiflutter/components/overlays/pay_Amount.dart';
 import 'package:taxiflutter/components/overlays/scan_and_Pay.dart';
 import 'package:taxiflutter/components/selection_Buttons/bluetooth.dart';
 import 'package:taxiflutter/components/selection_Buttons/pay_Amount_Tip_comp.dart';
+import 'package:taxiflutter/screens/for_Hire.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
-import 'package:taxiflutter/screens/menu_screen.dart';
-import 'package:taxiflutter/screens/qr_scan_screen.dart';
+import 'package:taxiflutter/screens/permission_required.dart';
+import 'package:taxiflutter/screens/taxi_Meter.dart';
 import 'components/Payment_Components/current_Fare.dart';
 import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
@@ -32,7 +33,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int? _selectedTipIndex;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MenuScreen()
+      home: ForHire(),
     );
   }
 }

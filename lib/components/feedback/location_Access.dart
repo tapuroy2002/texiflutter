@@ -65,7 +65,7 @@ class LocationAccess extends StatelessWidget {
                     style: TextStyle(
                       color: contentColor,
                       fontSize: subtitle != null ? 12 : 14,
-                      fontWeight: subtitle != null ? FontWeight.bold : FontWeight.w400,
+                      fontWeight: subtitle != null ? FontWeight.normal : FontWeight.w400,
                       letterSpacing: subtitle != null ? 1.1 : null,
                     ),
                   ),
@@ -75,7 +75,7 @@ class LocationAccess extends StatelessWidget {
                       subtitle!,
                       style: TextStyle(
                         color: contentColor,
-                        fontSize: 14,
+                        fontSize: subtitle != null ? 16 : null,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

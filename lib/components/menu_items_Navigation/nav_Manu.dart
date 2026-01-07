@@ -15,9 +15,13 @@ class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.transparent,
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: SizedBox(
+        height: 56.0, // Standard AppBar height
         child: Stack(
           children: [
+            // Back Button
             Align(
               alignment: Alignment.centerLeft,
               child: IconButton(
@@ -25,6 +29,7 @@ class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
                 onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
               ),
             ),
+            // Title
             Center(
               child: Text(
                 title,
@@ -40,6 +45,7 @@ class CustomHeaderMini extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
 }
