@@ -13,6 +13,7 @@ import 'package:taxiflutter/screens/login_screens.dart';
 import 'package:taxiflutter/screens/menu_screen.dart';
 import 'package:taxiflutter/screens/permission_required.dart';
 import 'package:taxiflutter/screens/taxi_Meter.dart';
+import 'package:taxiflutter/screens/taxi_Receipt_Screen.dart';
 import 'components/Payment_Components/current_Fare.dart';
 import 'components/buttons/medium_Button.dart';
 import 'components/feedback/location_Access.dart';
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ForHire()
+      home: TaxiReceiptScreen()
     );
   }
 }
