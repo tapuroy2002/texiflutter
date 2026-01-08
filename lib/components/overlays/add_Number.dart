@@ -25,11 +25,7 @@ class AddNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The unused 'phoneController' has been removed.
 
-    // Wrap the widget with Material to provide a canvas for Material Design
-    // widgets like TextField and prevent the 'No Material widget found' error.
-    // Setting the color to transparent makes the underlying screen visible.
     return Material(
       color: Colors.black.withOpacity(0.5), // Semi-transparent background
       child: Center(
@@ -67,8 +63,6 @@ class AddNumber extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
-
-              // Title
               Text(
                 title,
                 style: const TextStyle(
