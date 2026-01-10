@@ -8,6 +8,7 @@ import 'package:taxiflutter/components/overlays/pay_Amount.dart';
 import 'package:taxiflutter/components/overlays/scan_and_Pay.dart';
 import 'package:taxiflutter/components/selection_Buttons/bluetooth.dart';
 import 'package:taxiflutter/components/selection_Buttons/pay_Amount_Tip_comp.dart';
+import 'package:taxiflutter/router/go_router.dart';
 import 'package:taxiflutter/screens/askine_forrec.dart';
 import 'package:taxiflutter/screens/card_Pay.dart';
 import 'package:taxiflutter/screens/for_Hire.dart';
@@ -39,12 +40,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AskineForrec()
+      routerDelegate: goRouter.router.routerDelegate,
+      routeInformationProvider: goRouter.router.routeInformationProvider,
+      routeInformationParser: goRouter.router.routeInformationParser,
     );
   }
 }
