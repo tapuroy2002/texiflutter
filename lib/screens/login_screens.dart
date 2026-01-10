@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:taxiflutter/color_Theme/color_theme.dart';
 import 'package:taxiflutter/components/buttons/medium_Button.dart';
 import 'package:taxiflutter/components/text_fields/input_Text_field.dart';
@@ -155,6 +156,9 @@ class _LoginScreensState extends State<LoginScreens> {
                   textColor: ColorTheme.platinum,
                   color: ColorTheme.coreBlue,
                   strokeColor: ColorTheme.coreBlue,
+                  onPressed: (){
+                context.go('/home');
+                  },
                   strokeWidth: 0.0),
 
 

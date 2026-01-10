@@ -8,17 +8,13 @@ import 'package:taxiflutter/components/overlays/pay_Amount.dart';
 import 'package:taxiflutter/components/overlays/scan_and_Pay.dart';
 import 'package:taxiflutter/components/selection_Buttons/bluetooth.dart';
 import 'package:taxiflutter/components/selection_Buttons/pay_Amount_Tip_comp.dart';
+import 'package:taxiflutter/router/go_router.dart';
 import 'package:taxiflutter/screens/askine_forrec.dart';
 import 'package:taxiflutter/screens/card_Pay.dart';
-import 'package:taxiflutter/screens/email.dart';
 import 'package:taxiflutter/screens/for_Hire.dart';
-import 'package:taxiflutter/screens/kviitering_Sendt.dart';
-import 'package:taxiflutter/screens/kvittering.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
 import 'package:taxiflutter/screens/menu_screen.dart';
 import 'package:taxiflutter/screens/permission_required.dart';
-import 'package:taxiflutter/screens/qr.dart';
-import 'package:taxiflutter/screens/sms.dart';
 import 'package:taxiflutter/screens/taxi_Meter.dart';
 import 'package:taxiflutter/screens/taxi_Receipt_Screen.dart';
 import 'components/Payment_Components/current_Fare.dart';
@@ -44,12 +40,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Qr()
+      routerDelegate: goRouter.router.routerDelegate,
+      routeInformationProvider: goRouter.router.routeInformationProvider,
+      routeInformationParser: goRouter.router.routeInformationParser,
     );
   }
 }
