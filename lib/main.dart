@@ -12,9 +12,11 @@ import 'package:taxiflutter/router/go_router.dart';
 import 'package:taxiflutter/screens/askine_forrec.dart';
 import 'package:taxiflutter/screens/card_Pay.dart';
 import 'package:taxiflutter/screens/for_Hire.dart';
+import 'package:taxiflutter/screens/home_screen.dart';
 import 'package:taxiflutter/screens/login_screens.dart';
 import 'package:taxiflutter/screens/menu_screen.dart';
 import 'package:taxiflutter/screens/permission_required.dart';
+import 'package:taxiflutter/screens/profile_menu.dart';
 import 'package:taxiflutter/screens/taxi_Meter.dart';
 import 'package:taxiflutter/screens/taxi_Receipt_Screen_for_user.dart';
 import 'components/Payment_Components/current_Fare.dart';
@@ -39,14 +41,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      routerDelegate: goRouter.router.routerDelegate,
-      routeInformationProvider: goRouter.router.routeInformationProvider,
-      routeInformationParser: goRouter.router.routeInformationParser,
+
+    return MaterialApp(
+      home: AskineForrec()
     );
+    // return MaterialApp.router(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(
+    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    //   ),
+    //   // routerDelegate: goRouter.router.routerDelegate,
+    //   // routeInformationProvider: goRouter.router.routeInformationProvider,
+    //   // routeInformationParser: goRouter.router.routeInformationParser,
+    // );
   }
 }

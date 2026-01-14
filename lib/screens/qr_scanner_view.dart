@@ -3,8 +3,8 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:taxiflutter/components/buttons/normal_Button.dart';
 import 'package:taxiflutter/components/labels/tags.dart';
 import 'package:taxiflutter/components/menu_items_Navigation/nav_Manu.dart';
-
 import '../components/overlays/qr_Scanner_Overlay_Painter.dart';
+
 
 class QrScannerDialog extends StatefulWidget {
   const QrScannerDialog({super.key});
@@ -12,6 +12,7 @@ class QrScannerDialog extends StatefulWidget {
   @override
   State<QrScannerDialog> createState() => _QrScannerDialogState();
 }
+
 
 class _QrScannerDialogState extends State<QrScannerDialog> {
   final MobileScannerController controller = MobileScannerController();
